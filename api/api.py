@@ -14,6 +14,7 @@ def sendPrompt():
         body = request.json
         #logica para objeter el json de conecciones de PLC
         #response debe ser lo que retorna la funcion de openai
+        time.sleep(3)
         response = copy.deepcopy(body)
         response['status'] = 1
         httpRequest = 200        
