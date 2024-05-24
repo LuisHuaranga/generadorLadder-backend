@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import openai
-import json
+# import json
 
 # Configura tu clave API de OpenAI
 openai.api_key = ''
