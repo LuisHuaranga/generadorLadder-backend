@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import openai
 import json
 
@@ -13,7 +15,7 @@ def generate_ladder_logic(prompt):
                 {"role": "system", "content": "You are a helpful assistant."},
                 {"role": "user", "content": prompt}
             ],
-            max_tokens=150,
+            max_tokens=1000,
             temperature=0.7,
         )
 
@@ -21,10 +23,10 @@ def generate_ladder_logic(prompt):
         generated_text = response['choices'][0]['message']['content'].strip()
 
         # Devuelve la respuesta en formato JSON
-        return json.dumps({"generated_ladder_logic": generated_text}, indent=4)
+        return generated_text
 
     except Exception as e:
-        return json.dumps({"error": str(e)}, indent=4)
+        return str(e)
 
 if __name__ == "__main__":
     prompt = input("Introduce el prompt para generar la programación de PLC tipo ladder: ")
