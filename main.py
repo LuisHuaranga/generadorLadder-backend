@@ -16,6 +16,7 @@ def sendPrompt():
         body = request.json
         #logica para objeter el json de conecciones de PLC
         #response debe ser lo que retorna la funcion de openai
+        #ponerpromt
         response = copy.deepcopy(body)
         response['respuestaGTP'] = apenAI.generate_ladder_logic(body['prompt']);
         response['status'] = 1
