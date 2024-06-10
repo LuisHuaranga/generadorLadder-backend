@@ -10,8 +10,9 @@ import time
 
 app = Flask(__name__)
 CORS(app)
-
-prePrompt = """El siguiente ejemplo es un diagrama en ladder en xml de un circuito de enclavamiento <LadderCircuit Name="Arranque y Paro con Retroalimentación"><Run><SeriesConnection><Component Type="Input" Id="StopButton" Connection="NC"/><ParallelConnection><Component Type="Input" Id="StartButton" Connection="NO"/><Component Type="Output" Id="MotorOn" Feedback="True"/></ParallelConnection><Component Type="Output" Id="MotorOn"/></SeriesConnection></Run></LadderCircuit> De la misma forma quiero que devuelvas en xml la siguien instruccion.Solo dame el xml, sin otros textos: """
+    
+with open('prompts/prompt_test.txt', 'r') as file:
+    prePrompt = file.read()
 
 @app.route('/sendPrompt', methods=['POST'])
 def sendPrompt():
